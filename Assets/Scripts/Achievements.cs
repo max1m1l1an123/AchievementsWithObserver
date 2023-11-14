@@ -15,7 +15,8 @@ public class Achievements : MonoBehaviour {
     
 
     private int nCoins = 0;
-    
+    private int nKilledEnemies = 0;
+
     private void Start() {
         // Add our method to listen to Coin-class event:
         Coin.OnCoinCollected += CoinWasCollected;
@@ -33,8 +34,6 @@ public class Achievements : MonoBehaviour {
         }
     }
 
-    private int nKilledEnemies = 0;
-
     void EnemyWasKilled()
     {
         nKilledEnemies++;
@@ -48,5 +47,4 @@ public class Achievements : MonoBehaviour {
             }
         }
     }
-
 }
