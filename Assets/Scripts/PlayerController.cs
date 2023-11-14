@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -58,7 +59,17 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Destroy(other.gameObject); // Destroy the coin!
+
+        if (other.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject); // Destroy the coin!
+        }
+
+        else if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy killed!");
+            Destroy(other.gameObject);
+        }
     }
 
     // Start is called before the first frame update
@@ -66,7 +77,6 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _start_pos = transform.position;
-
     }
 
     IEnumerator Replay()

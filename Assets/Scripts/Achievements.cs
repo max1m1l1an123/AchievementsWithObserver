@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Achievements : MonoBehaviour {
 
     private const int nAchievements = 3;
+
     public enum Achievement_ID {
         Coin_Collector,
         Terminator,
@@ -21,6 +19,7 @@ public class Achievements : MonoBehaviour {
     private void Start() {
         // Add our method to listen to Coin-class event:
         Coin.OnCoinCollected += CoinWasCollected;
+        Enemy.OnEnemyKilled += EnemyWasKilled;
     }
 
     void CoinWasCollected() {
@@ -30,6 +29,22 @@ public class Achievements : MonoBehaviour {
             if (!bUnlockedAchievements[index]) {
                 bUnlockedAchievements[index] = true;
                 Debug.Log("You've unlocked: COIN COLLECTOR!!!");
+            }
+        }
+    }
+
+    private int nKilledEnemies = 0;
+
+    void EnemyWasKilled()
+    {
+        nKilledEnemies++;
+        if (nKilledEnemies == 2)
+        {
+            int index = (int)Achievement_ID.Terminator;
+            if (!bUnlockedAchievements[index])
+            {
+                bUnlockedAchievements[index] = true;
+                Debug.Log("You've unlocked: ENEMY TERMINATOR!!!");
             }
         }
     }
