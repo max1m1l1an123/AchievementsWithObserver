@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
         else if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy killed!");
             Destroy(other.gameObject);
         }
     }

@@ -5,5 +5,8 @@ public class Enemy : MonoBehaviour
 {
     public static event Action OnEnemyKilled;
 
-    private void OnDestroy() { OnEnemyKilled?.Invoke(); }
+    private void OnDisable()
+    {
+        OnEnemyKilled?.Invoke();
+    }
 }

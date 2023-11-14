@@ -37,7 +37,7 @@ public class Achievements : MonoBehaviour {
     void EnemyWasKilled()
     {
         nKilledEnemies++;
-        if (nKilledEnemies == 2)
+        if (nKilledEnemies == 10)
         {
             int index = (int)Achievement_ID.Terminator;
             if (!bUnlockedAchievements[index])
