@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.LeftControl))
                 {
-                    //gameObject.transform.localScale -= Vector3.up * 0.5f;
+                    gameObject.transform.localScale -= Vector3.up * 0.5f;
                     _currentState = PlayerState.CROUCH;
                 }
                 #endregion commands
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
                 #region commands
                 if (Input.GetKeyDown(KeyCode.LeftControl))
                 {
-                    //gameObject.transform.localScale += Vector3.up * 0.5f; // uncrouch
+                    gameObject.transform.localScale += Vector3.up * 0.5f; // uncrouch
                     _currentState = PlayerState.WALK;
                 }
                 #endregion commands
